@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int playerOneScoreCount, playerTwoScoreCount, rountCount;
     boolean activePlayer;  //p1->0  p2->1  empty->2
     int[] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};
-    int[][] winningPositions = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
+    int[][] winningPositions = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8},
+                                {0, 3, 6}, {1, 4, 7}, {2, 5, 8},
+                                {0, 4, 8}, {2, 4, 6}};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else if (rountCount == 9) {
             Toast.makeText(this, "NO Winner", Toast.LENGTH_SHORT).show();
+            playAgain();
         } else {
             activePlayer = !activePlayer;
         }
@@ -88,8 +91,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 playAgain();
-                playerOneScoreCount =0;
-                playerTwoScoreCount =0;
+                playerOneScoreCount = 0;
+                playerTwoScoreCount = 0;
                 playerStatus.setText("");
                 updatePlayerScore();
             }
